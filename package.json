@@ -1,18 +1,37 @@
 {
-  "name": "my-gatsby-site",
+  "name": "@aiherrera/personal-website",
   "version": "1.0.0",
-  "private": true,
-  "description": "My Gatsby Site",
-  "author": "Alain Iglesias",
+  "description": "Personal website",
+  "license": "MIT",
+  "author": {
+    "name": "Alain Iglesias",
+    "email": "info@aiherrera.com",
+    "url": "https://www.aiherrera.com"
+  },
+  "homepage": "https://www.aiherrera.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aiherrera/aiherrera-gatsby.com.git"
+  },
   "keywords": [
-    "gatsby"
+    "react",
+    "gatsby",
+    "personal-website",
+    "portfolio"
   ],
   "scripts": {
     "develop": "gatsby develop",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "clean": "gatsby clean"
+    "clean": "gatsby clean",
+    "prepare": "husky install",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
+    "check:types": "tsc --pretty --noEmit",
+    "check:format": "pretty-quick --staged",
+    "check:lint": "eslint . --ext .ts,.tsx,.js,.jsx pages --color",
+    "check:all": "npm run check-format && npm run check-lint && npm run check-types && npm run build",
+    "lint:staged": "lint-staged"
   },
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
@@ -27,6 +46,7 @@
     "gatsby-plugin-sharp": "^3.13.0",
     "gatsby-plugin-sitemap": "^4.9.0",
     "gatsby-plugin-styled-components": "^4.13.0",
+    "gatsby-plugin-typescript": "^3.13.0",
     "gatsby-source-contentful": "^5.13.0",
     "gatsby-source-filesystem": "^3.13.0",
     "gatsby-transformer-sharp": "^3.13.0",
@@ -34,5 +54,23 @@
     "react-dom": "^17.0.1",
     "react-helmet": "^6.1.0",
     "styled-components": "^5.3.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-conventional": "^13.1.0",
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@typescript-eslint/eslint-plugin": "^4.31.0",
+    "@typescript-eslint/parser": "^4.31.0",
+    "eslint": "^7.32.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.25.1",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
+    "prettier": "^2.3.2",
+    "pretty-quick": "^3.1.1",
+    "typescript": "^4.4.2"
   }
 }
